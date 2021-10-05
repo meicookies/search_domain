@@ -14,7 +14,7 @@ print("""
 
 """)
 keyword = input("[$] Search: ")
-print("[💕] Please wait...")
+print("[*] Please wait...")
 
 sites = "https://crt.sh/"
 source = curl.get(f"{sites}?q={keyword}").content
@@ -32,11 +32,11 @@ for site in BeautifulSoup(html, "html.parser").find_all("td"):
                 fuck.write(re.sub("$", "\n", site.text))
                 fuck.close
 result = [counter]
-print(f"[❗] Found: {result} domain")
+print(f"[!] Found: {result} domain")
 for x in result:
     with alive_bar(x) as bar:
         for i in range(x):
             time.sleep(.01)
             bar()
-print(f"[✅] Tersimpan di {saved_result}.txt")
+print(f"[+] Tersimpan di {saved_result}.txt")
 # coded by ./meicookies
