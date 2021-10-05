@@ -22,9 +22,10 @@ html = re.sub("<BR>", "\n", source.decode('UTF-8'))
 
 pocket = set()
 counter = 0
+saved_result = re.sub("\s", "_", keyword)
 for site in BeautifulSoup(html, "html.parser").find_all("td"):
     if validators.domain(site.text):
-        with open(f"{keyword}.txt", "a+") as fuck:
+        with open(f"{saved_result}.txt", "a+") as fuck:
             if site.text not in pocket:
                 counter += 1
                 pocket.add(site.text)
@@ -37,6 +38,5 @@ for x in result:
         for i in range(x):
             time.sleep(.01)
             bar()
-saved_result = re.sub("\s", "_", keyword)
 print(f"[✅] Tersimpan di {saved_result}.txt")
 # coded by ./meicookies
