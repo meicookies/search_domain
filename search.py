@@ -14,6 +14,7 @@ print("""
 
 """)
 keyword = input("[$] Search: ")
+print("[💕] Please wait...")
 
 sites = "https://crt.sh/"
 source = curl.get(f"{sites}?q={keyword}").content
@@ -21,7 +22,6 @@ html = re.sub("<BR>", "\n", source.decode('UTF-8'))
 
 pocket = set()
 counter = 0
-print("[💕] Please wait...")
 for site in BeautifulSoup(html, "html.parser").find_all("td"):
     if validators.domain(site.text):
         with open(f"{keyword}.txt", "a+") as fuck:
