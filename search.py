@@ -27,3 +27,4 @@ if __name__ == '__main__':
     keyword = input("[$] Search: ")
     print("[*] Please wait...")
     cari(keyword)
+# code by ./meicookies
