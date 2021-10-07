@@ -20,7 +20,7 @@ def cari(keyword):
         with alive_bar(x) as fuck:
             for i in range(jumlah):
                 file = open(f"{result_name}.txt", "a+")
-                file.write(total[i] + "\n")
+                file.write(re.sub("$", "\n", str(total[i])))
                 file.close; time.sleep(.01); fuck()
     print(f"[+] Tersimpan di {result_name}.txt")
 if __name__ == '__main__':
